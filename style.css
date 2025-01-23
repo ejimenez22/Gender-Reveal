@@ -1,42 +1,117 @@
+/* Base styles */
 html, body {
-  height: 100%;
-  background-image: linear-gradient(to right, rgb(227,61,148), rgb(30,139,195));
+  height: 100%; /* Ensure the body takes up the full height */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Apply flex to body */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-image: linear-gradient(to right, rgb(227, 61, 148), rgb(30, 139, 195));
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  overflow: hidden;
 }
 
-h1, p {
+/* Wrapper for countdown text */
+#countdown-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px;
-  font-size: 150px;
-  font-style: italic;
+  flex-direction: column; /* Keep text centered vertically */
+  text-align: center;
+  z-index: 1;
+  width: 100%; /* Ensure the container takes up full width */
+  height: 100%; /* Ensure the container takes up full height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Styling for the main header (h1) */
+h1 {
+  font-size: 8vw; /* Decrease font size for larger screens */
+  color: black; /* Change text color to black */
+  font-style: italic; /* Keep text italic */
+  margin: 0;
+  z-index: 1;
+  transition: opacity 2s ease;
+}
+
+/* Styling for the countdown text (#demo) */
+#demo {
+  font-size: 12vw; /* Moderate font size for countdown text */
+  color: black; /* Change text color to black */
+  font-style: italic; /* Keep text italic */
+  margin: 0;
+  transition: opacity 2s ease;
+  padding: 0 4%; /* Add padding to prevent text from touching the edges */
+  line-height: 1.1; /* Adjust line-height for better text spacing */
+  letter-spacing: 0.3rem; /* Add some spacing between characters for readability */
+}
+
+/* Fade-out effect */
 .fade-out {
   animation: fadeOut 3s forwards;
 }
 
+/* Fade-in effect */
 .fade-in {
   animation: fadeIn 3s forwards;
 }
 
+/* Keyframes for fade out */
 @keyframes fadeOut {
   0% {
-      opacity: 1;
+    opacity: 1;
   }
   100% {
-      opacity: 0;
+    opacity: 0;
   }
 }
 
+/* Keyframes for fade in */
 @keyframes fadeIn {
   0% {
-      opacity: 0;
+    opacity: 0;
   }
   100% {
-      opacity: 1;
+    opacity: 1;
+  }
+}
+
+/* Responsive design */
+
+/* Phones (portrait and landscape) */
+@media (max-width: 767px) {
+  h1 {
+    font-size: 18vw; /* Slightly smaller font size for mobile */
+  }
+  #demo {
+    font-size: 22vw; /* Adjusted size for countdown */
+    padding: 0 8%; /* Reduce padding to fit better */
+    letter-spacing: 0.25rem; /* Less letter-spacing for smaller screens */
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) and (min-width: 768px) {
+  h1 {
+    font-size: 16vw; /* Smaller font size for tablets */
+  }
+  #demo {
+    font-size: 20vw; /* Adjusted size for countdown */
+    padding: 0 6%; /* Add some padding to prevent cutoff */
+    letter-spacing: 0.25rem; /* Increase spacing a little */
+  }
+}
+
+/* Larger screens (desktops and laptops) */
+@media (min-width: 1025px) {
+  h1 {
+    font-size: 6rem; /* Larger font size for large screens */
+  }
+  #demo {
+    font-size: 8rem; /* Larger font size for countdown */
   }
 }

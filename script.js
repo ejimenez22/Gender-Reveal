@@ -1,5 +1,5 @@
 // Convert deadline to CST time zone (using GMT-0600 for CST)
-let deadline = new Date("Jan 22, 2025 22:45:00 GMT-0600").getTime(); // Set to CST explicitly
+let deadline = new Date("Jan 22, 2025 23:24:00 GMT-0600").getTime(); // Set to CST explicitly
 
 // To call defined function every second
 let x = setInterval(function () {
@@ -21,7 +21,7 @@ let x = setInterval(function () {
         // Wait for the fade-out to finish before showing the new text and background color change
         setTimeout(function () {
             // Change text and fade-in effect
-            document.getElementById("demo").innerHTML = "Coming August 2025";
+            document.getElementById("demo").innerHTML = "It's a girl!";
             document.getElementById("demo").classList.add("fade-in");
 
             // Change background color to pink
