@@ -1,5 +1,5 @@
 // Convert deadline to CST time zone (using GMT-0600 for CST)
-let deadline = new Date("Feb 4, 2025 12:00:00 GMT-0600").getTime(); // Set to CST explicitly
+let deadline = new Date("Jan 22, 2025 22:45:00 GMT-0600").getTime(); // Set to CST explicitly
 
 // To call defined function every second
 let x = setInterval(function () {
@@ -10,6 +10,36 @@ let x = setInterval(function () {
 
     // Calculating the difference
     let t = deadline - now;
+
+    // If the timer has reached zero or gone negative, handle it
+    if (t < 0) {
+        clearInterval(x); // Stop the timer
+
+        // Apply fade-out effect to timer
+        document.getElementById("demo").classList.add("fade-out");
+
+        // Wait for the fade-out to finish before showing the new text and background color change
+        setTimeout(function () {
+            // Change text and fade-in effect
+            document.getElementById("demo").innerHTML = "Coming August 2025";
+            document.getElementById("demo").classList.add("fade-in");
+
+            // Change background color to pink
+            document.documentElement.style.background = '#ff00ff';
+            document.body.style.background = '#ff00ff';
+
+            // Trigger confetti effect when the timer hits zero
+            // More powerful confetti for visibility
+            confetti({
+                particleCount: 200,   // Number of particles
+                spread: 180,          // Wider spread for more dispersion
+                origin: { x: 0.5, y: 0.5 },  // Center the confetti in the middle of the screen
+                duration: 8000,       // Duration set to 8 seconds
+            });
+        }, 5000); // 5 seconds delay for the fade-out effect to complete
+
+        return; // Stop further execution
+    }
 
     // Getting value of days, hours, minutes, seconds
     let days = Math.floor(t / (1000 * 60 * 60 * 24));
@@ -30,13 +60,4 @@ let x = setInterval(function () {
             minutes + "m " + seconds + "s";
     }
 
-    // Output for over time
-    if (t < 0) {
-        clearInterval(x);
-        document.getElementById("demo").innerHTML = "Coming August 2025";
-        
-        // Change background color to pink
-        document.documentElement.style.background = 'green'; 
-        document.body.style.background = 'green';
-    }
 }, 1000);
