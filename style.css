@@ -1,0 +1,15 @@
+html, body {
+  height: 100%;
+  background-image: linear-gradient(to right, rgb(227,61,148), rgb(30,139,195));
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+h1, p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 150px;
+}
