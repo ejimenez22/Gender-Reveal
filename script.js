@@ -1,5 +1,5 @@
 // Convert deadline to CST time zone (using GMT-0600 for CST)
-let deadline = new Date("Jan 22, 2025 23:24:00 GMT-0600").getTime(); // Set to CST explicitly
+let deadline = new Date("Feb 1, 2025 20:59:00 GMT-0600").getTime(); // Set to CST explicitly
 
 // To call defined function every second
 let x = setInterval(function () {
